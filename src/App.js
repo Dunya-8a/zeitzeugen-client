@@ -16,7 +16,10 @@ const App = () => {
 					<Route path="/" exact component={Landing} />
 					<Route path="/home" component={Home} />
 					<Route path="/library" component={Library} />
-					<Router path="/:videoId" component={VideoPage} />
+					<Router
+						path="/:videoId"
+						render={(routerProps) => <VideoPage {...routerProps} />}
+					/>
 				</Switch>
 			</Router>
 		</>
