@@ -5,8 +5,8 @@ import { GET_ALL_VIDEOS_API_URL } from "../../api/axios";
 
 // IMPORT COMPONENTS
 import VideoCard from "../../components/VideoCard/VideoCard";
-import { Header } from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+import { Header } from "../../components/Header";
+import Footer from "../../components/Footer";
 
 const Home = () => {
 	const [videos, setVideos] = useState([]);

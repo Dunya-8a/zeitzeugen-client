@@ -3,7 +3,6 @@ import {
 	Box,
 	Flex,
 	Avatar,
-	Link,
 	Button,
 	HStack,
 	Menu,
@@ -18,23 +17,10 @@ import {
 	Center,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import Searchbar from "../Searchbar/Searchbar";
+import NavLink from "./NavLink";
+import Searchbar from "./Searchbar/Searchbar";
 
 const Links = ["Explore", "Library"];
-
-const NavLink = ({ children, href }) => (
-	<Link
-		px={2}
-		py={1}
-		rounded={"md"}
-		_hover={{
-			textDecoration: "none",
-			bg: useColorModeValue("gray.200", "gray.700"),
-		}}
-		href={href}>
-		{children}
-	</Link>
-);
 
 export const Header = () => {
 	const { colorMode, toggleColorMode } = useColorMode();
@@ -43,15 +29,19 @@ export const Header = () => {
 	return (
 		<>
 			<Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
-				<Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+				<Flex
+					h={16}
+					alignItems={"center"}
+					justifyContent={"space-between"}
+					px={6}>
 					<Box>Logo</Box>
 
 					<Flex alignItems={"center"}>
-						<Stack direction={"row"} spacing={7}>
+						<Stack direction={"row"} spacing={9}>
 							{/* Navigation */}
 							<HStack
 								as={"nav"}
-								spacing={4}
+								spacing={6}
 								display={{ base: "none", md: "flex" }}>
 								{Links.map((link) => (
 									<NavLink key={link} href={`/${link.toLowerCase()}`}>
