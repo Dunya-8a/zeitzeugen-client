@@ -20,7 +20,7 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import NavLink from "./NavLink";
 import Searchbar from "./Searchbar/Searchbar";
 
-const Links = ["Explore", "Library"];
+const Links = ["Explore", "Library", "Upload"];
 
 export const Header = () => {
 	const { colorMode, toggleColorMode } = useColorMode();

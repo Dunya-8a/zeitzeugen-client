@@ -26,6 +26,7 @@ const App = () => {
 						path="/:videoId"
 						render={(routerProps) => <VideoPage {...routerProps} />}
 					/>
+					{/* <Route path="/upload" component={Home} /> */}
 				</Switch>
 			</Router>
 		</>
