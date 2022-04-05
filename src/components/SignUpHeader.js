@@ -52,7 +52,9 @@ export default function WithSubnavigation() {
 				</Flex>
 				<Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
 					<Text
+						as={"a"}
 						hef={"/"}
+						variant={"link"}
 						textAlign={useBreakpointValue({ base: "center", md: "left" })}
 						fontFamily={"heading"}
 						color={useColorModeValue("gray.800", "white")}>
@@ -78,6 +80,7 @@ export default function WithSubnavigation() {
 						Sign In
 					</Button>
 					<Button
+						as={"a"}
 						display={{ base: "none", md: "inline-flex" }}
 						fontSize={"sm"}
 						fontWeight={600}
