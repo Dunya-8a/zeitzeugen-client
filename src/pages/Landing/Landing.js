@@ -1,8 +1,13 @@
 import React from "react";
 
+// COMPONENTS
+import SignUpHeader from "../../components/SignUpHeader/SignUpHeader";
+import Footer from "../../components/Footer/Footer";
+
 const Landing = () => {
 	return (
 		<>
+			<SignUpHeader />
 			<div>
 				<h1>Zeitzeugen</h1>
 				<p>Life is short and we never know when each of us will leave.</p>
@@ -31,6 +36,7 @@ const Landing = () => {
 			</div>
 		</>
 	);
+	<Footer />;
 };
 
 export default Landing;

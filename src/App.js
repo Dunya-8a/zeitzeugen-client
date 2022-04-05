@@ -1,6 +1,11 @@
 // IMPORT MODULES
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Redirect,
+} from "react-router-dom";
 
 // IMPORT COMPONENTS AND STYLES
 import VideoPage from "./pages/VideoPage";
@@ -15,6 +20,7 @@ const App = () => {
 				<Switch>
 					<Route path="/" exact component={Landing} />
 					<Route path="/home" component={Home} />
+					<Redirect path="/explore" to="/home" />
 					<Route path="/library" component={Library} />
 					<Router
 						path="/:videoId"
