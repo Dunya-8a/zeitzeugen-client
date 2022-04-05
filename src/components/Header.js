@@ -22,7 +22,7 @@ import Searchbar from "./Searchbar/Searchbar";
 
 const Links = ["Explore", "Library", "Upload"];
 
-export const Header = () => {
+const Header = () => {
 	const { colorMode, toggleColorMode } = useColorMode();
 	// const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -94,3 +94,5 @@ export const Header = () => {
 		</>
 	);
 };
+
+export default Header;

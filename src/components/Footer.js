@@ -9,6 +9,7 @@ import {
 	Text,
 	useColorModeValue,
 	Divider,
+	Flex,
 } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
 
@@ -18,7 +19,7 @@ const Footer = () => {
 			bg={useColorModeValue("gray.50", "gray.900")}
 			color={useColorModeValue("gray.700", "gray.200")}>
 			<Container
-				as={Stack}
+				as={Flex}
 				maxW={"6xl"}
 				h={12}
 				py={12}
@@ -28,7 +29,7 @@ const Footer = () => {
 				justify={{ md: "space-between" }}
 				align={{ base: "center", md: "center" }}>
 				<Text>Logo</Text>
-				<Text>2022 Made with 💜 at BrainStation</Text>
+				<Text>2022 Made with 💜 by Dünya Baradari at BrainStation</Text>
 
 				<Stack direction={"row"} spacing={6} align="center">
 					<Stack direction={"row"} spacing={6} height={6}>

@@ -1,8 +1,8 @@
 import React from "react";
 
 // COMPONENTS
-import SignUpHeader from "../../components/SignUpHeader";
-import Footer from "../../components/Footer";
+import SignUpHeader from "../components/SignUpHeader";
+import Footer from "../components/Footer";
 
 const Landing = () => {
 	return (

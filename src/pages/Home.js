@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { GET_ALL_VIDEOS_API_URL } from "../../api/axios";
+import { GET_ALL_VIDEOS_API_URL } from "../api/axios";
 
 // IMPORT COMPONENTS
-import VideoCard from "../../components/VideoCard/VideoCard";
-import { Header } from "../../components/Header";
-import Footer from "../../components/Footer";
+import VideoCard from "../components/VideoCard/VideoCard";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Home = () => {
 	const [videos, setVideos] = useState([]);
