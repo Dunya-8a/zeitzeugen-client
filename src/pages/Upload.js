@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {uploadIpfs} from "../ipfs";
+import {callIPFS} from "../ipfs";
 // import axios from "axios";
 // import {
 // 	Button,
@@ -65,7 +65,7 @@ const Upload = () =>
 	const submitIPFS = (e) => {
 		e.preventDefault();
         console.log("submit");
-        console.log(uploadIpfs(videoBuffer));
+        callIPFS(videoBuffer);
 	};
 
 	return (

@@ -6,13 +6,14 @@
 // // });
 
 import { create } from "ipfs-http-client";
-const client = create("https://ipfs.infura.io:5001/api/v0");
+const client = create("http://localhost:5001");
 console.log(client);
-const callIPFS = async () => {
-	const { cid } = await client.add("Hello, wolrd");
-	console.log(cid);
+export const callIPFS = async (data) => {
+	const { cid } = await client.add(data);
+	console.log(data);
+    console.log(cid);
+    console.log(cid._baseCache.get('z'))
 };
-callIPFS();
 
 // export const uploadIpfs = (data) =>
 // {
