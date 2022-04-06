@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import {callIPFS} from "../ipfs";
+import { callIPFS } from "../ipfs";
+import axios from "axios";
+import POST_VIDEO_FILE from "../api/axios";
 // import axios from "axios";
 // import {
 // 	Button,
@@ -21,60 +23,102 @@ import {callIPFS} from "../ipfs";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const Upload = () =>
-{
-    const [videoBuffer, setVideoBuffer] = useState([]);
-	// // 48x48 PNG of a yin-yang symbol
-	// const base64 = testVideo;
-	// console.log(base64);
-
-	// async function run() {
-	// 	const blob = await fetch(base64).then((res) => res.blob());
-	// 	console.log(blob);
-
-	// 	const formData = new FormData();
-	// 	formData.append("yinyang.png", blob);
-	// 	console.log(formData);
-
-	// 	// Post the form, just make sure to set the 'Content-Type' header
-	// 	const res = await axios.post("//localhost:8080/upload", formData, {
-	// 		headers: {
-	// 			"Content-Type": "multipart/form-data",
-	// 		},
-	// 	});
-
-	// 	// Prints "yinyang.png"
-	// 	console.log(res.data);
-	// }
-	// run().catch((err) => console.log(err));
+const Upload = () => {
+	const [videoBuffer, setVideoBuffer] = useState([]);
 
 	const captureFile = (e) => {
 		e.preventDefault();
 		console.log("capture file");
-        const file = e.target.files[0];
-        const reader = new FileReader()
-        reader.readAsArrayBuffer(file)
-        reader.onloadend = () =>
-        {
-            const buffer = new Uint8Array(reader.result);
-            setVideoBuffer(buffer);
-        }
-    };
-    console.log(videoBuffer)
+		const file = e.target.files[0];
+		// Reads data in buffer format, as this is a format the IPFS can understand
+		const reader = new FileReader();
+		reader.readAsArrayBuffer(file);
+		reader.onloadend = () => {
+			const buffer = new Uint8Array(reader.result);
+			setVideoBuffer(buffer);
+		};
+	};
 
-	const submitIPFS = (e) => {
+	const submitIPFS = async () => {
+		console.log("submit");
+		const fileHash = await callIPFS(videoBuffer);
+		console.log(`https://ipfs.io/ipfs/${fileHash}`);
+		return `https://ipfs.io/ipfs/${fileHash}`;
+	};
+
+	const submitForm = async (e) => {
 		e.preventDefault();
-        console.log("submit");
-        callIPFS(videoBuffer);
+		const firstName = e.target.fname.value;
+		const surname = e.target.surname.value;
+		const age = e.target.age.value || null;
+		const bday = e.target.bday.value || null;
+		const bplace = e.target.bplace.value || null;
+		const placesLived = e.target.placeslived.value || null;
+		const gender = e.target.gender.value;
+		const topics = e.target.topics.value;
+		const summary = e.target.summary.value || null;
+		const ipfsLink = await submitIPFS();
+		const userId = 1;
+		const iDate = e.target.idate.value;
+
+		const newVideo = {
+			time_witness_first_name: firstName,
+			time_witness_surname: surname,
+			age: age,
+			date_of_birth: bday,
+			place_of_birth: bplace,
+			places_lived: placesLived,
+			gender: gender,
+			topics: topics,
+			story_summary: summary,
+			video_link: ipfsLink,
+			user_id: userId,
+			date_of_interview: iDate,
+		};
+		await axios
+			.post(POST_VIDEO_FILE, newVideo)
+			.then((res) => {
+				console.log(res);
+			})
+			.catch((err) => console.log(err));
 	};
 
 	return (
 		<>
 			<Header />
 			<main>
-				<form onSubmit={submitIPFS}>
+				<form onSubmit={submitForm}>
 					<input type="file" onChange={captureFile}></input>
-					<input type="submit" />
+					<label htmlFor="firstName">Surname</label>
+					<input
+						type="text"
+						name="fname"
+						placeholder="Time Witness' First Name"
+						autoCapitalize="words"></input>
+					<input
+						type="text"
+						name="surname"
+						placeholder="Time Witness' Surname"
+						autoCapitalize="words"></input>
+					<input type="text" name="age" placeholder="Time Witness' Age"></input>
+					<input type="date" name="bday" placeholder="Date of Birth"></input>
+					<input type="text" name="bplace" placeholder="Place of Birth"></input>
+					<input
+						type="text"
+						name="placeslived"
+						placeholder="Places lived"></input>
+					<input type="text" name="gender"></input>
+					{/* <input type="radio" name="gender" value="Female"></input>
+					<input type="radio" name="gender" value="Male"></input>
+					<input type="radio" name="gender" value="Other"></input> */}
+					<input type="topics" name="topics" placeholder="Topics"></input>
+					<input
+						type="text"
+						name="summary"
+						id="summary"
+						placeholder="Story summary"></input>
+					<input type="date" name="idate" placeholder="Interview date"></input>
+					<input type="submit" id="submit" />
 				</form>
 			</main>
 
@@ -84,13 +128,6 @@ const Upload = () =>
 };
 
 export default Upload;
-
-{
-	/* <form method="post" encType="multipart/form-data">
-	<input id="video-file" type="file" name="videofile" onChange={UploadFile} />
-	<button type="submit">Button</button>
-</form>; */
-}
 
 /* <FormControl isRequired>
 					<FormLabel htmlFor="first-name">First name</FormLabel>
