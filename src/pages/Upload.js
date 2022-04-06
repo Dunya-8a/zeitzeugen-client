@@ -2,28 +2,12 @@ import React, { useState } from "react";
 import { callIPFS } from "../ipfs";
 import axios from "axios";
 import { POST_VIDEO_FILE_API_URL } from "../api/axios";
-// import axios from "axios";
-// import {
-// 	Button,
-// 	FormControl,
-// 	FormLabel,
-// 	FormErrorMessage,
-// 	FormHelperText,
-// 	Input,
-// 	NumberInput,
-// 	NumberInputField,
-// 	NumberInputStepper,
-// 	NumberIncrementStepper,
-// 	NumberDecrementStepper,
-// } from "@chakra-ui/react";
-// import { UploadFile } from "../utils/UploadFile";
-// import testVideo from "../assets/testVideo.mp4";
-import { DatePicker } from "@blueprintjs/datetime";
-import "@blueprintjs/datetime/lib/css/blueprint-datetime.css";
 
 // COMPONENTS
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { DatePicker } from "@blueprintjs/datetime";
+import "@blueprintjs/datetime/lib/css/blueprint-datetime.css";
 
 const Upload = () => {
 	const [videoBuffer, setVideoBuffer] = useState([]);
@@ -43,8 +27,8 @@ const Upload = () => {
 		};
 	};
 
+    // Passes video data to IPFS function and attaches the returned hash to the ipfs url
 	const submitIPFS = async () => {
-		console.log("submit");
 		const fileHash = await callIPFS(videoBuffer);
 		console.log(`https://ipfs.io/ipfs/${fileHash}`);
 		return `https://ipfs.io/ipfs/${fileHash}`;
@@ -152,6 +136,23 @@ const Upload = () => {
 };
 
 export default Upload;
+
+// import axios from "axios";
+// import {
+// 	Button,
+// 	FormControl,
+// 	FormLabel,
+// 	FormErrorMessage,
+// 	FormHelperText,
+// 	Input,
+// 	NumberInput,
+// 	NumberInputField,
+// 	NumberInputStepper,
+// 	NumberIncrementStepper,
+// 	NumberDecrementStepper,
+// } from "@chakra-ui/react";
+// import { UploadFile } from "../utils/UploadFile";
+// import testVideo from "../assets/testVideo.mp4";
 
 /* <FormControl isRequired>
 					<FormLabel htmlFor="first-name">First name</FormLabel>
