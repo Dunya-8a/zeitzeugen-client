@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import ipfs from "../ipfs";
-import axios from "axios";
-import {
-	Button,
-	FormControl,
-	FormLabel,
-	FormErrorMessage,
-	FormHelperText,
-	Input,
-	NumberInput,
-	NumberInputField,
-	NumberInputStepper,
-	NumberIncrementStepper,
-	NumberDecrementStepper,
-} from "@chakra-ui/react";
-import { UploadFile } from "../utils/UploadFile";
-import testVideo from "../assets/testVideo.mp4";
+import {uploadIpfs} from "../ipfs";
+// import axios from "axios";
+// import {
+// 	Button,
+// 	FormControl,
+// 	FormLabel,
+// 	FormErrorMessage,
+// 	FormHelperText,
+// 	Input,
+// 	NumberInput,
+// 	NumberInputField,
+// 	NumberInputStepper,
+// 	NumberIncrementStepper,
+// 	NumberDecrementStepper,
+// } from "@chakra-ui/react";
+// import { UploadFile } from "../utils/UploadFile";
+// import testVideo from "../assets/testVideo.mp4";
 
 // COMPONENTS
 import Header from "../components/Header";
@@ -64,7 +64,8 @@ const Upload = () =>
 
 	const submitIPFS = (e) => {
 		e.preventDefault();
-		console.log("submit");
+        console.log("submit");
+        console.log(uploadIpfs(videoBuffer));
 	};
 
 	return (
