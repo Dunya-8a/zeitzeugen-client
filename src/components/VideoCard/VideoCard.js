@@ -4,6 +4,7 @@ import React from "react";
 import YoutubeThumbnail from "../../utils/YoutubeThumbnail/YoutubeThumbnail";
 
 const VideoCard = ({ video }) => {
+	console.log(video.topics.split(","));
 	return (
 		<div>
 			<YoutubeThumbnail embedId={video.video_link} />

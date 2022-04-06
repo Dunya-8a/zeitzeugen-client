@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import SocialButton from "./SocialButton";
 
 import {
@@ -7,6 +6,7 @@ import {
 	Container,
 	Stack,
 	Text,
+	Link,
 	useColorModeValue,
 	Divider,
 	Flex,

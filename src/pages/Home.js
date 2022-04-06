@@ -23,6 +23,8 @@ const Home = () => {
 		fetchAllVideos();
 	}, []);
 
+	console.log(videos);
+
 	return (
 		<>
 			<Header />

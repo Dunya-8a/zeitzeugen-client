@@ -14,6 +14,7 @@ import Landing from "./pages/Landing";
 import Library from "./pages/Library";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Upload from "./pages/Upload";
 
 const App = () => {
 	return (
@@ -26,11 +27,11 @@ const App = () => {
 					<Route path="/login" component={Login} />
 					<Redirect path="/explore" to="/home" />
 					<Route path="/library" component={Library} />
+					<Route path="/upload" component={Upload} />
 					<Router
 						path="/:videoId"
 						render={(routerProps) => <VideoPage {...routerProps} />}
 					/>
-					{/* <Route path="/upload" component={Home} /> */}
 				</Switch>
 			</Router>
 		</>

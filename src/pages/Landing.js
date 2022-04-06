@@ -8,7 +8,7 @@ const Landing = () => {
 	return (
 		<>
 			<SignUpHeader />
-			<div>
+			<div className="content">
 				<h1>Zeitzeugen</h1>
 				<p>Life is short and we never know when each of us will leave.</p>
 				<p>Our life stories are unique, but volatile.</p>
