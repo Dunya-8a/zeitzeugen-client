@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { callIPFS } from "../ipfs";
 import axios from "axios";
-import POST_VIDEO_FILE from "../api/axios";
+import { POST_VIDEO_FILE_API_URL } from "../api/axios";
 // import axios from "axios";
 // import {
 // 	Button,
@@ -18,6 +18,8 @@ import POST_VIDEO_FILE from "../api/axios";
 // } from "@chakra-ui/react";
 // import { UploadFile } from "../utils/UploadFile";
 // import testVideo from "../assets/testVideo.mp4";
+import { DatePicker } from "@blueprintjs/datetime";
+import "@blueprintjs/datetime/lib/css/blueprint-datetime.css";
 
 // COMPONENTS
 import Header from "../components/Header";
@@ -25,6 +27,8 @@ import Footer from "../components/Footer";
 
 const Upload = () => {
 	const [videoBuffer, setVideoBuffer] = useState([]);
+	const [birthDay, setBirthDay] = useState(null);
+	const [interviewDay, setInterviewDay] = useState(null);
 
 	const captureFile = (e) => {
 		e.preventDefault();
@@ -51,7 +55,6 @@ const Upload = () => {
 		const firstName = e.target.fname.value;
 		const surname = e.target.surname.value;
 		const age = e.target.age.value || null;
-		const bday = e.target.bday.value || null;
 		const bplace = e.target.bplace.value || null;
 		const placesLived = e.target.placeslived.value || null;
 		const gender = e.target.gender.value;
@@ -59,13 +62,12 @@ const Upload = () => {
 		const summary = e.target.summary.value || null;
 		const ipfsLink = await submitIPFS();
 		const userId = 1;
-		const iDate = e.target.idate.value;
 
 		const newVideo = {
 			time_witness_first_name: firstName,
 			time_witness_surname: surname,
 			age: age,
-			date_of_birth: bday,
+			date_of_birth: birthDay, // taken from state, which takes it from DatePicker
 			place_of_birth: bplace,
 			places_lived: placesLived,
 			gender: gender,
@@ -73,14 +75,34 @@ const Upload = () => {
 			story_summary: summary,
 			video_link: ipfsLink,
 			user_id: userId,
-			date_of_interview: iDate,
+			date_of_interview: interviewDay, // taken from state, which takes it from DatePicker
 		};
 		await axios
-			.post(POST_VIDEO_FILE, newVideo)
+			.post(POST_VIDEO_FILE_API_URL, newVideo)
 			.then((res) => {
 				console.log(res);
 			})
 			.catch((err) => console.log(err));
+	};
+
+	const getBirthDate = (e) => {
+		setBirthDay(
+			e.toLocaleDateString("en-CA", {
+				year: "numeric",
+				month: "2-digit",
+				day: "2-digit",
+			})
+		);
+	};
+
+	const getInterviewDate = (e) => {
+		setInterviewDay(
+			e.toLocaleDateString("en-CA", {
+				year: "numeric",
+				month: "2-digit",
+				day: "2-digit",
+			})
+		);
 	};
 
 	return (
@@ -101,7 +123,8 @@ const Upload = () => {
 						placeholder="Time Witness' Surname"
 						autoCapitalize="words"></input>
 					<input type="text" name="age" placeholder="Time Witness' Age"></input>
-					<input type="date" name="bday" placeholder="Date of Birth"></input>
+					<label>Birthday</label>
+					<DatePicker showActionsBar={true} onChange={getBirthDate} />
 					<input type="text" name="bplace" placeholder="Place of Birth"></input>
 					<input
 						type="text"
@@ -117,7 +140,8 @@ const Upload = () => {
 						name="summary"
 						id="summary"
 						placeholder="Story summary"></input>
-					<input type="date" name="idate" placeholder="Interview date"></input>
+					<label>Day of Interview</label>
+					<DatePicker showActionsBar={true} onChange={getInterviewDate} />
 					<input type="submit" id="submit" />
 				</form>
 			</main>
