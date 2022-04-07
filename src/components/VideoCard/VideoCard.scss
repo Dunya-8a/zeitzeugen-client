@@ -3,11 +3,12 @@
 	&-container {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: space-between;
 	}
 
 	&__link {
 		display: inline;
+		padding: 24px 6px 0;
 	}
 
 	&__title {

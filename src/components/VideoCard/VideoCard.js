@@ -28,7 +28,7 @@ const VideoCard = ({ video }) =>
 	return (
 		<>
 			{video.sample_video && (
-				<Box maxW="320" borderWidth="1px" borderRadius="lg" overflow="hidden" d="inline">
+				<Box maxW="320" borderWidth="1px" borderRadius="lg" overflow="hidden">
 					<Image
 						src={youtubeLink(video.video_link)}
 						alt={name}
@@ -69,7 +69,7 @@ const VideoCard = ({ video }) =>
 							<Image
 								mt="2"
 								borderRadius="full"
-								boxSize="40px"
+								boxSize="35px"
 								src={userIcon}
 								alt="user"
 							/>
