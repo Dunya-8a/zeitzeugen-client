@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom"
 import { callIPFS } from "../ipfs";
 import axios from "axios";
 import { POST_VIDEO_FILE_API_URL } from "../api/axios";
@@ -9,6 +10,7 @@ import Footer from "../components/Footer";
 import { DatePicker } from "@blueprintjs/datetime";
 import "@blueprintjs/datetime/lib/css/blueprint-datetime.css";
 import "./Upload.scss";
+
 
 // CHAKRA UI COMPONENTS
 import {
@@ -85,7 +87,7 @@ const Upload = () => {
 			.then((res) => {
 				console.log(res);
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => console.log(err))
 	};
 
 	const getBirthDate = (e) => {
@@ -125,11 +127,11 @@ const Upload = () => {
 									// name="resume"
 									onChange={captureFile}
 								/>
-								<span class="file-cta">
-									<span class="file-icon">
-										<i class="fas fa-upload"></i>
+								<span className="file-cta">
+									<span className="file-icon">
+										<i className="fas fa-upload"></i>
 									</span>
-									<span class="file-label">Choose a file…</span>
+									<span className="file-label">Choose a file…</span>
 								</span>
 							</label>
 						</div>
@@ -210,7 +212,9 @@ const Upload = () => {
 							showActionsBar={true}
 							onChange={getInterviewDate}
 						/>
-						<input type="submit" id="submit" />
+						<Link to="/explore">
+							<input type="submit" id="submit" />
+						</Link>
 					</Stack>
 				</form>
 			</main>

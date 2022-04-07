@@ -27,8 +27,8 @@ const VideoCard = ({ video }) =>
 
 	return (
 		<>
-			{video.sample_video && (
-				<Box maxW="320" borderWidth="1px" borderRadius="lg" overflow="hidden">
+			<Box maxW="320" borderWidth="1px" borderRadius="lg" overflow="hidden">
+				{video.sample_video ?
 					<Image
 						src={youtubeLink(video.video_link)}
 						alt={name}
@@ -36,6 +36,12 @@ const VideoCard = ({ video }) =>
 						overflow="hidden"
 						objectFit="cover"
 					/>
+					: 
+					<video>
+						<source src={video.sample_video} type="video/mp4"></source>
+					</video>
+				}
+					
 
 					<Box p="6">
 						<Box display="flex" alignItems="baseline">
@@ -79,7 +85,6 @@ const VideoCard = ({ video }) =>
 						</Box>
 					</Box>
 				</Box>
-			)}
 		</>
 	);
 }

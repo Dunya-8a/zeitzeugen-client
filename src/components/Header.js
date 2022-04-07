@@ -10,6 +10,7 @@ import {
 	MenuList,
 	MenuItem,
 	MenuDivider,
+	Image,
 	// useDisclosure,
 	useColorModeValue,
 	Stack,
@@ -19,6 +20,7 @@ import {
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import NavLink from "./NavLink";
 import Searchbar from "./Searchbar/Searchbar";
+import logo from "../assets/logo.svg"
 
 const Links = ["Explore", "Library", "Upload"];
 
@@ -34,7 +36,9 @@ const Header = () => {
 					alignItems={"center"}
 					justifyContent={"space-between"}
 					px={6}>
-					<Box>Logo</Box>
+					<Box>
+						<Image src={logo} boxSize="150px" objectFit="contain" />
+					</Box>
 
 					<Flex alignItems={"center"}>
 						<Stack direction={"row"} spacing={9}>

@@ -34,7 +34,7 @@ const Home = () => {
 					<Link
 						className="video-card__link"
 						key={video.video_id}
-						to={`/${video.video_id}`}>
+						to={`videos/${video.video_id}`}>
 						<VideoCard key={video.video_id} video={video} />
 					</Link>
 				))}

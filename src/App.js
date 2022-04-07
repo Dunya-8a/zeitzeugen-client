@@ -28,8 +28,8 @@ const App = () => {
 					<Redirect path="/explore" to="/home" />
 					<Route path="/library" component={Library} />
 					<Route path="/upload" component={Upload} />
-					<Router
-						path="/:videoId"
+					<Route
+						path="/videos/:video_id"
 						render={(routerProps) => <VideoPage {...routerProps} />}
 					/>
 				</Switch>
