@@ -29,15 +29,16 @@ const Home = () => {
 	return (
 		<>
 			<Header />
-			<div className="video-card-container"></div>
-			{videos.map((video) => (
-				<Link
-					className="video-card__link"
-					key={video.video_id}
-					to={`/${video.video_id}`}>
-					<VideoCard key={video.video_id} video={video} />
-				</Link>
-			))}
+			<div className="video-card-container">
+				{videos.map((video) => (
+					<Link
+						className="video-card__link"
+						key={video.video_id}
+						to={`/${video.video_id}`}>
+						<VideoCard key={video.video_id} video={video} />
+					</Link>
+				))}
+			</div>
 			<Footer />
 		</>
 	);
