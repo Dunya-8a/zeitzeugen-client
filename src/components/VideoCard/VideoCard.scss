@@ -1,0 +1,14 @@
+.video-card {
+    display: flex;
+	&-container {
+		display: flex;
+	}
+
+	&__link {
+		display: inline;
+	}
+
+	&__title {
+		font-weight: bold;
+	}
+}

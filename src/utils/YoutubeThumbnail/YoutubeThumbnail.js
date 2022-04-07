@@ -11,6 +11,7 @@ const YoutubeThumbnail = ({ embedId }) => {
 				className="thumbnail__media"
 				src={`http://img.youtube.com/vi/${embedId}/hqdefault.jpg`}
 				alt="thumbnail"
+				
 			/>
 		</div>
 	);
