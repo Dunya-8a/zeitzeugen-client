@@ -39,8 +39,7 @@ const VideoCard = ({ video }) =>
 
 					<Box p="6">
 						<Box display="flex" alignItems="baseline">
-							{topicsArray.map((topic) =>
-							{
+							{topicsArray.map((topic) => {
 								return (
 									<Badge borderRadius="full" px="2" colorScheme="teal" mr="1">
 										{topic}
@@ -69,8 +68,9 @@ const VideoCard = ({ video }) =>
 							<Image
 								mt="2"
 								borderRadius="full"
-								boxSize="35px"
+								boxSize="30px"
 								src={userIcon}
+								fallbackSrc={userIcon}
 								alt="user"
 							/>
 							<Box as="span" mt="2" ml="3" color="gray.600" fontSize="sm">
