@@ -4,6 +4,7 @@ import "./VideoCard.scss";
 import { Box, Badge, Image } from "@chakra-ui/react";
 import { GET_ALL_USERS_API_URL } from "../../api/axios"
 import userIcon from "../../assets/user.png"
+import network from "../../assets/network.jpeg";
 
 const VideoCard = ({ video }) =>
 {
@@ -27,8 +28,8 @@ const VideoCard = ({ video }) =>
 
 	return (
 		<>
-			<Box maxW="320" borderWidth="1px" borderRadius="lg" overflow="hidden">
-				{video.sample_video ?
+			<Box width="320px" borderWidth="1px" borderRadius="lg" overflow="hidden">
+				{video.sample_video ? (
 					<Image
 						src={youtubeLink(video.video_link)}
 						alt={name}
@@ -36,55 +37,58 @@ const VideoCard = ({ video }) =>
 						overflow="hidden"
 						objectFit="cover"
 					/>
-					: 
-					<video>
-						<source src={video.sample_video} type="video/mp4"></source>
-					</video>
-				}
-					
+				) : (
+					<Image
+						src={network}
+						alt={name}
+						className="thumbnail__media"
+						overflow="hidden"
+						objectFit="cover"
+					/>
+				)}
 
-					<Box p="6">
-						<Box display="flex" alignItems="baseline">
-							{topicsArray.map((topic) => {
-								return (
-									<Badge borderRadius="full" px="2" colorScheme="teal" mr="1">
-										{topic}
-									</Badge>
-								);
-							})}
+				<Box p="6">
+					<Box display="flex" alignItems="baseline">
+						{topicsArray.map((topic) => {
+							return (
+								<Badge borderRadius="full" px="2" colorScheme="teal" mr="1">
+									{topic}
+								</Badge>
+							);
+						})}
+					</Box>
+
+					<Box
+						mt="2"
+						fontWeight="semibold"
+						as="h3"
+						lineHeight="tight"
+						isTruncated>
+						{name}
+					</Box>
+
+					<Box>
+						{/* {property.formattedPrice} */}
+						<Box as="span" color="gray.600" fontSize="sm" mt="1">
+							{interviewDate}
 						</Box>
+					</Box>
 
-						<Box
-							mt="2"
-							fontWeight="semibold"
-							as="h3"
-							lineHeight="tight"
-							isTruncated>
-							{name}
-						</Box>
-
-						<Box>
-							{/* {property.formattedPrice} */}
-							<Box as="span" color="gray.600" fontSize="sm" mt="1">
-								{interviewDate}
-							</Box>
-						</Box>
-
-						<Box display="flex" mt="2" alignItems="center">
-							<Image
+					<Box display="flex" mt="2" alignItems="center">
+						{/* <Image
 								mt="2"
 								borderRadius="full"
 								boxSize="30px"
 								src={userIcon}
 								fallbackSrc={userIcon}
 								alt="user"
-							/>
-							<Box as="span" mt="2" ml="3" color="gray.600" fontSize="sm">
-								{user}
-							</Box>
+							/> */}
+						<Box as="span" mt="2" color="gray.600" fontSize="sm">
+							{user}
 						</Box>
 					</Box>
 				</Box>
+			</Box>
 		</>
 	);
 }

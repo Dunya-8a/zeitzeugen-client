@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import { callIPFS } from "../ipfs";
 import axios from "axios";
 import { POST_VIDEO_FILE_API_URL } from "../api/axios";
@@ -10,7 +10,6 @@ import Footer from "../components/Footer";
 import { DatePicker } from "@blueprintjs/datetime";
 import "@blueprintjs/datetime/lib/css/blueprint-datetime.css";
 import "./Upload.scss";
-
 
 // CHAKRA UI COMPONENTS
 import {
@@ -66,7 +65,7 @@ const Upload = () => {
 		const topics = e.target.topics.value;
 		const summary = e.target.summary.value || null;
 		const ipfsLink = await submitIPFS();
-		const userId = 1;
+		const userId = 2;
 
 		const newVideo = {
 			time_witness_first_name: firstName,
@@ -87,7 +86,7 @@ const Upload = () => {
 			.then((res) => {
 				console.log(res);
 			})
-			.catch((err) => console.log(err))
+			.catch((err) => console.log(err));
 	};
 
 	const getBirthDate = (e) => {
@@ -212,9 +211,8 @@ const Upload = () => {
 							showActionsBar={true}
 							onChange={getInterviewDate}
 						/>
-						<Link to="/explore">
-							<input type="submit" id="submit" />
-						</Link>
+
+						<input type="submit" id="submit" />
 					</Stack>
 				</form>
 			</main>

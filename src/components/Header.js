@@ -82,7 +82,7 @@ const Header = () => {
 									</Center>
 									<br />
 									<Center>
-										<p>Username</p>
+										<p>Keith</p>
 									</Center>
 									<br />
 									<MenuDivider />
