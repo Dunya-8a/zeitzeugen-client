@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { callIPFS } from "../ipfs";
+// import { Link } from "react-router-dom";
+import { callIPFS } from "../../ipfs";
 import axios from "axios";
-import { POST_VIDEO_FILE_API_URL } from "../api/axios";
+import { POST_VIDEO_FILE_API_URL } from "../../api/axios";
 
 // COMPONENTS
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import { DatePicker } from "@blueprintjs/datetime";
 import "@blueprintjs/datetime/lib/css/blueprint-datetime.css";
 import "./Upload.scss";
@@ -179,8 +179,8 @@ const Upload = () => {
 								placeholder="Places lived"
 							/>
 						</FormControl>
-						<FormControl>
-							<FormLabel htmlFor="country">Gender</FormLabel>
+						<FormControl isRequired>
+							<FormLabel htmlFor="gender">Gender</FormLabel>
 							<Select name="gender" placeholder="Select Gender">
 								<option>Female</option>
 								<option>Male</option>
@@ -220,142 +220,3 @@ const Upload = () => {
 };
 
 export default Upload;
-
-// import axios from "axios";
-// import {
-// 	Button,
-// 	FormControl,
-// 	FormLabel,
-// 	FormErrorMessage,
-// 	FormHelperText,
-// 	Input,
-// 	NumberInput,
-// 	NumberInputField,
-// 	NumberInputStepper,
-// 	NumberIncrementStepper,
-// 	NumberDecrementStepper,
-// } from "@chakra-ui/react";
-// import { UploadFile } from "../utils/UploadFile";
-// import testVideo from "../assets/testVideo.mp4";
-
-/* <FormControl isRequired>
-					<FormLabel htmlFor="first-name">First name</FormLabel>
-					<Input id="first-name" placeholder="First name" />
-				</FormControl>
-				<FormControl isRequired>
-					<FormLabel htmlFor="first-name">Surname</FormLabel>
-					<Input id="surname" placeholder="Surname" />
-				</FormControl>
-				<FormControl>
-					<FormLabel htmlFor="age">Age</FormLabel>
-					<NumberInput max={150} min={1}>
-						<NumberInputField id="age" />
-						<NumberInputStepper>
-							<NumberIncrementStepper />
-							<NumberDecrementStepper />
-						</NumberInputStepper>
-					</NumberInput>
-				</FormControl>
-
-				<form onSubmit={UploadFile}>
-					<FormControl>
-						<FormLabel htmlFor="file">Upload Video</FormLabel>
-						<Input
-							id="video-file"
-							type="file"
-							name="videofile"
-							onChange={UploadFile}
-						/>
-						<Button type="submit">Button</Button>
-					</FormControl>
-                </form>
-                
-                <FormControl onSubmit={UploadFile}>
-					<FormLabel htmlFor="file">Upload Video</FormLabel>
-					<Input id="video-file" type="file" />
-					<Button type="submit">Button</Button>
-                </FormControl> */
-
-/* <main className="container content">
-				<h1>Upload</h1>
-				<div className="field">
-					<label className="label">First name</label>
-					<div className="control">
-						<input
-							className="input is-rounded"
-							type="text"
-							placeholder="First name"
-						/>
-					</div>
-				</div>
-				<div className="field">
-					<label className="label">Surname</label>
-					<div className="control">
-						<input
-							className="input  is-rounded"
-							type="text"
-							placeholder="Surname"
-						/>
-					</div>
-				</div>
-				<div className="field">
-					<label className="label">Age</label>
-					<div className="control">
-						<input
-							className="input  is-rounded"
-							type="text"
-							placeholder="Age"
-						/>
-					</div>
-				</div>
-
-				<div className="field">
-					<label className="label">Subject</label>
-					<div className="control">
-						<div className="select">
-							<select>
-								<option>Select dropdown</option>
-								<option>With options</option>
-							</select>
-						</div>
-					</div>
-				</div>
-
-				<div className="field">
-					<label className="label">Message</label>
-					<div className="control">
-						<textarea className="textarea" placeholder="Textarea"></textarea>
-					</div>
-				</div>
-
-				<div className="field">
-					<div className="control">
-						<label className="checkbox">
-							<input type="checkbox" />I agree to the{" "}
-							<a href="#">terms and conditions</a>
-						</label>
-					</div>
-				</div>
-
-				<div className="field">
-					<div className="control">
-						<label className="radio">
-							<input type="radio" name="question" />
-							Yes
-						</label>
-						<label className="radio">
-							<input type="radio" name="question" />
-							No
-						</label>
-					</div>
-				</div>
-
-				<div className="field is-grouped">
-					<div className="control">
-						<button className="button is-link">Submit</button>
-					</div>
-					<div className="control">
-						<button className="button is-link is-light">Cancel</button>
-					</div>
-				</div>
-			</main> */

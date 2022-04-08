@@ -11,6 +11,7 @@ import {
 	MenuItem,
 	MenuDivider,
 	Image,
+	Link,
 	// useDisclosure,
 	useColorModeValue,
 	Stack,
@@ -19,7 +20,7 @@ import {
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import NavLink from "./NavLink";
-import Searchbar from "./Searchbar/Searchbar";
+// import Searchbar from "./Searchbar/Searchbar";
 import logo from "../assets/logo.svg"
 
 const Links = ["Explore", "Library", "Upload"];
@@ -36,9 +37,11 @@ const Header = () => {
 					alignItems={"center"}
 					justifyContent={"space-between"}
 					px={6}>
-					<Box>
-						<Image src={logo} boxSize="150px" objectFit="contain" />
-					</Box>
+					<Link href={"/"}>
+						<Box>
+							<Image src={logo} boxSize="150px" objectFit="contain" />
+						</Box>
+					</Link>
 
 					<Flex alignItems={"center"}>
 						<Stack direction={"row"} spacing={9}>

@@ -1,3 +1,6 @@
+import React from "react";
+
+// IMPORT UI COMPONENTS
 import {
 	Box,
 	Flex,
@@ -7,6 +10,7 @@ import {
 	Stack,
 	Collapse,
 	Icon,
+	Image,
 	Link,
 	Popover,
 	PopoverTrigger,
@@ -21,6 +25,7 @@ import {
 	ChevronDownIcon,
 	ChevronRightIcon,
 } from "@chakra-ui/icons";
+import logo from "../assets/logo.svg";
 
 export default function WithSubnavigation() {
 	const { isOpen, onToggle } = useDisclosure();
@@ -50,17 +55,15 @@ export default function WithSubnavigation() {
 						aria-label={"Toggle Navigation"}
 					/>
 				</Flex>
-				<Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-					<Text
-						as={"a"}
-						hef={"/"}
-						variant={"link"}
-						textAlign={useBreakpointValue({ base: "center", md: "left" })}
-						fontFamily={"heading"}
-						color={useColorModeValue("gray.800", "white")}>
-						Logo
-					</Text>
-
+				<Flex
+					flex={{ base: 1 }}
+					justify={{ base: "center", md: "start" }}
+					align={"center"}>
+					<Link href={"/home"}>
+						<Box textAlign={useBreakpointValue({ base: "center", md: "left" })}>
+							<Image src={logo} width="150px" objectFit="contain" />
+						</Box>
+					</Link>
 					<Flex display={{ base: "none", md: "flex" }} ml={10}>
 						<DesktopNav />
 					</Flex>
@@ -73,7 +76,7 @@ export default function WithSubnavigation() {
 					spacing={6}>
 					<Button
 						as={"a"}
-						fontSize={"sm"}
+						fontSize={"m"}
 						fontWeight={400}
 						variant={"link"}
 						href={"/login"}>
@@ -82,7 +85,7 @@ export default function WithSubnavigation() {
 					<Button
 						as={"a"}
 						display={{ base: "none", md: "inline-flex" }}
-						fontSize={"sm"}
+						fontSize={"m"}
 						fontWeight={600}
 						color={"white"}
 						bg={"pink.400"}
@@ -115,8 +118,8 @@ const DesktopNav = () => {
 						<PopoverTrigger>
 							<Link
 								p={2}
-								href={navItem.href ?? "#"}
-								fontSize={"sm"}
+								href={navItem.href ?? "/"}
+								fontSize={"m"}
 								fontWeight={500}
 								color={linkColor}
 								_hover={{
@@ -248,41 +251,55 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
 	{
-		label: "Inspiration",
+		label: "Explore",
+		href: "/explore",
 		children: [
 			{
-				label: "Explore Design Work",
-				subLabel: "Trending Design to inspire you",
-				href: "#",
+				label: "Time spans",
+				subLabel: "Stories from a certain time",
+				href: "/explore",
 			},
 			{
-				label: "New & Noteworthy",
-				subLabel: "Up-and-coming Designers",
-				href: "#",
+				label: "Topics",
+				subLabel: "Stories about Life, Youth, War, Happiness and more",
+				href: "/explore",
+			},
+			{
+				label: "Location",
+				subLabel: "Stories from a different places in the world",
+				href: "/explore",
 			},
 		],
 	},
 	{
-		label: "Find Work",
+		label: "How it works",
+		href: "/",
 		children: [
 			{
-				label: "Job Board",
-				subLabel: "Find your dream design job",
-				href: "#",
+				label: "Our mission",
+				subLabel: "3 steps to join the cause",
+				href: "/",
 			},
 			{
-				label: "Freelance Projects",
-				subLabel: "An exclusive list for contract work",
-				href: "#",
+				label: "Interview Guide",
+				subLabel: "Inspiration and best-practices",
+				href: "/",
 			},
 		],
 	},
 	{
-		label: "Learn Design",
-		href: "#",
-	},
-	{
-		label: "Hire Designers",
-		href: "#",
+		label: "About Zeitzeugen",
+		children: [
+			{
+				label: "How it started",
+				subLabel: "The history behind zeitzeugen",
+				href: "#",
+			},
+			{
+				label: "FAQ",
+				subLabel: "Our most frequently asked questions",
+				href: "#",
+			},
+		],
 	},
 ];

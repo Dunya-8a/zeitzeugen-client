@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from "react";
+// FUNCTIONAL IMPORTS
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { GET_SINGLE_VIDEO_API_URL } from "../api/axios";
+
+// COMPONENTS
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import YoutubeEmbed from "../utils/YoutubeEmbed/YoutubeEmbed";
@@ -10,19 +13,17 @@ const VideoPage = (routerProps) => {
 	const id = routerProps.match.params.video_id;
 	const [video, setVideo] = useState(null);
 
-	const fetchVideo = () => {
+	const fetchVideo = useCallback(() => {
 		axios
 			.get(GET_SINGLE_VIDEO_API_URL(id))
 			.then(({ data }) => setVideo(data))
 			.catch((err) => console.log(err));
-	};
+	}, [id]);
 
 	useEffect(() => {
 		window.scrollTo(0, 0); // Bring view back to top
 		fetchVideo();
-	}, []);
-
-	console.log(video);
+	}, [fetchVideo]);
 
 	let name;
 	let topicsArray;

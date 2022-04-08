@@ -1,28 +1,32 @@
-import React, {useState} from "react";
+// FUNCTIONAL IMPORTS
+import React, { useState } from "react";
 import axios from "axios";
+import { GET_ALL_USERS_API_URL } from "../../api/axios";
+
+// COMPONENTS & STYLING
 import "./VideoCard.scss";
-import { Box, Badge, Image } from "@chakra-ui/react";
-import { GET_ALL_USERS_API_URL } from "../../api/axios"
-import userIcon from "../../assets/user.png"
+// import userIcon from "../../assets/user.png"
 import network from "../../assets/network.jpeg";
+import { Box, Badge, Image } from "@chakra-ui/react";
 
-const VideoCard = ({ video }) =>
-{
-	const [user, setUser] = useState("")
-	axios.get(GET_ALL_USERS_API_URL(video.user_id))
-		.then((res) =>
-		{
-			setUser(`${res.data.user_first_name} ${res.data.user_surname}`)
-		})
+const VideoCard = ({ video }) => {
+	const [user, setUser] = useState("");
+	axios.get(GET_ALL_USERS_API_URL(video.user_id)).then((res) => {
+		setUser(`${res.data.user_first_name} ${res.data.user_surname}`);
+	});
 
+	// Topics are provided as a string, seperated by a comma
 	const topicsArray = video.topics.split(",");
-	const name = `${video.time_witness_first_name} ${video.time_witness_surname === "Unknown" ? "" : video.time_witness_surname
-		}`;
+
+	// Getting the name and interview date in the desired format
+	const name = `${video.time_witness_first_name} ${
+		video.time_witness_surname === "Unknown" ? "" : video.time_witness_surname
+	}`;
 	let interviewDate = new Date(video.date_of_interview);
 	interviewDate = interviewDate.toLocaleDateString();
 
-	const youtubeLink = (embedId) =>
-	{
+	// Retrieves a thumbnail for a specified YouTube video
+	const youtubeLink = (embedId) => {
 		return `http://img.youtube.com/vi/${embedId}/mqdefault.jpg`;
 	};
 
@@ -75,6 +79,7 @@ const VideoCard = ({ video }) =>
 					</Box>
 
 					<Box display="flex" mt="2" alignItems="center">
+						{/* User icon, to be replaced with the actual icon that the user provides */}
 						{/* <Image
 								mt="2"
 								borderRadius="full"
@@ -91,6 +96,6 @@ const VideoCard = ({ video }) =>
 			</Box>
 		</>
 	);
-}
+};
 
 export default VideoCard;

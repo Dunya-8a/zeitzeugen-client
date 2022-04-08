@@ -14,7 +14,7 @@ import Landing from "./pages/Landing";
 import Library from "./pages/Library";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Upload from "./pages/Upload";
+import Upload from "./pages/Upload/Upload";
 
 const App = () => {
 	return (
