@@ -13,11 +13,8 @@ import "./Upload.scss";
 
 // CHAKRA UI COMPONENTS
 import {
-	Button,
 	FormControl,
 	FormLabel,
-	FormErrorMessage,
-	FormHelperText,
 	Input,
 	NumberInput,
 	NumberInputField,
