@@ -1,5 +1,5 @@
+/* Not implemented, for future iterations of the website */
 import React from "react";
-// import "./Searchbar.scss";
 
 const Searchbar = () => {
 	return (

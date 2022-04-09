@@ -5,6 +5,7 @@ import { GET_ALL_VIDEOS_API_URL } from "../api/axios";
 
 // IMPORT COMPONENTS
 import VideoCard from "../components/VideoCard/VideoCard";
+import "../components/VideoCard/VideoCard.scss";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -28,11 +29,16 @@ const Home = () => {
 	return (
 		<>
 			<Header />
-			{videos.map((video) => (
-				<Link key={video.video_id} to={`/${video.video_id}`}>
-					<VideoCard key={video.video_id} video={video} />
-				</Link>
-			))}
+			<div className="video-card-container">
+				{videos.map((video) => (
+					<Link
+						className="video-card__link"
+						key={video.video_id}
+						to={`videos/${video.video_id}`}>
+						<VideoCard key={video.video_id} video={video} />
+					</Link>
+				))}
+			</div>
 			<Footer />
 		</>
 	);

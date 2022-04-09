@@ -1,14 +1,13 @@
 .thumbnail {
+	width: 320px;
 	overflow: hidden;
 	// padding-bottom: 56.25%;
 	// position: relative;
 	// height: 0;
 }
 
-// .thumbnail__media {
-// 	left: 0;
-// 	top: 0;
-// 	// height: 100%;
-// 	// width: 100%;
-// 	position: absolute;
-// }
+.thumbnail__media {
+	// margin: -11% 0;
+	object-position: 50% 11%;
+	z-index: -99;
+}

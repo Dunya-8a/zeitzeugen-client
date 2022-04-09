@@ -1,0 +1,30 @@
+@mixin content {
+	padding: 4.5rem 8rem;
+	background-color: black;
+	color: white;
+}
+
+.landing {
+	&__container {
+		background-color: black;
+		width: 100vw;
+		&-title {
+			@include content;
+			padding-bottom: 0;
+		}
+		&-right {
+			@include content;
+			text-align: right;
+		}
+		&-left,
+		inner {
+			@include content;
+		}
+		&-inner {
+			max-width: 80%;
+		}
+		&-bottom {
+			padding-bottom: 6rem;
+		}
+	}
+}

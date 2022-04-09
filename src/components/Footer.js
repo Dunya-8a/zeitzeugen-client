@@ -6,12 +6,14 @@ import {
 	Container,
 	Stack,
 	Text,
+	Image,
 	Link,
 	useColorModeValue,
 	Divider,
 	Flex,
 } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
+import logo from "../assets/logo.svg";
 
 const Footer = () => {
 	return (
@@ -28,7 +30,9 @@ const Footer = () => {
 				spacing={6}
 				justify={{ md: "space-between" }}
 				align={{ base: "center", md: "center" }}>
-				<Text>Logo</Text>
+				<Box>
+					<Image src={logo} boxSize="150px" objectFit="contain" />
+				</Box>
 				<Text>2022 Made with 💜 by Dünya Baradari at BrainStation</Text>
 
 				<Stack direction={"row"} spacing={6} align="center">
