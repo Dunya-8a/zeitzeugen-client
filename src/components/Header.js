@@ -21,7 +21,7 @@ import {
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import NavLink from "./NavLink";
 // import Searchbar from "./Searchbar/Searchbar";
-import logo from "../assets/logo.svg"
+import logo from "../assets/logo.svg";
 
 const Links = ["Explore", "Library", "Upload"];
 

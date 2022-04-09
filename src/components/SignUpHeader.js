@@ -88,10 +88,10 @@ export default function WithSubnavigation() {
 						fontSize={"m"}
 						fontWeight={600}
 						color={"white"}
-						bg={"pink.400"}
+						bg={"#cc40ff"}
 						href={"/signup"}
 						_hover={{
-							bg: "pink.300",
+							bg: "#e44afc",
 						}}>
 						Sign Up
 					</Button>
@@ -160,12 +160,12 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
 			display={"block"}
 			p={2}
 			rounded={"md"}
-			_hover={{ bg: useColorModeValue("pink.50", "gray.900") }}>
+			_hover={{ bg: useColorModeValue("#f8dbff", "gray.900") }}>
 			<Stack direction={"row"} align={"center"}>
 				<Box>
 					<Text
 						transition={"all .3s ease"}
-						_groupHover={{ color: "pink.400" }}
+						_groupHover={{ color: "#cc40ff" }}
 						fontWeight={500}>
 						{label}
 					</Text>
@@ -179,7 +179,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
 					justify={"flex-end"}
 					align={"center"}
 					flex={1}>
-					<Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+					<Icon color={"#cc40ff"} w={5} h={5} as={ChevronRightIcon} />
 				</Flex>
 			</Stack>
 		</Link>

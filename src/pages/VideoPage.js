@@ -53,7 +53,7 @@ const VideoPage = (routerProps) => {
 							<video controls src={video.video_link}></video>
 						</AspectRatio>
 					)}
-					<Stack spacing={3} padding="2% 15%">
+					<Stack spacing={4} margin="0 auto" maxW="45%" padding=" 2% 0 4% 0">
 						<Text fontSize="6xl">{name}'s Story</Text>
 						{video.age && <Text fontSize="3xl">{video.age} years old</Text>}
 						{video.date_of_birth && <Text fontSize="xl">Born {birthDate}</Text>}
