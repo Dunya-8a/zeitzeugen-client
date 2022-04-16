@@ -48,6 +48,12 @@ const Upload = () => {
 		const fileHash = await callIPFS(videoBuffer);
 		console.log(`https://ipfs.io/ipfs/${fileHash}`);
 		return `https://ipfs.io/ipfs/${fileHash}`;
+
+		/* Alternatively, use this public API to retrieve the file
+		You still need to upload it using your local node in this configuration
+		
+		console.log(`https://ipfs.infura.io:5001/api/v0/${fileHash}`); 
+		return `https://ipfs.infura.io:5001/api/v0/${fileHash}`;*/
 	};
 
 	const submitForm = async (e) => {
