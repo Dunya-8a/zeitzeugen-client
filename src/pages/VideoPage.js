@@ -50,7 +50,13 @@ const VideoPage = (routerProps) => {
 						<YoutubeEmbed embedId={video.video_link} />
 					) : (
 						<AspectRatio maxW="45%" align={"center"} margin="0 auto">
-							<video controls src={video.video_link}></video>
+							<video
+								controls
+								src={
+									video.video_id % 2 === 0
+										? "https://ipfs.io/ipfs/QmesmyBx9R898GqvVREi2Ng9sRPbZzqGMUBLzyoKipCGtL"
+										: "http://bafybeig7q7ir6rti44wnzyu6bdsk4zaky3pqsodyjelu22kibheer5qnci.ipfs.localhost:8080/"
+								}></video>
 						</AspectRatio>
 					)}
 					<Stack spacing={4} margin="0 auto" maxW="45%" padding=" 2% 0 4% 0">

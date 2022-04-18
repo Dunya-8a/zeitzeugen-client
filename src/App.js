@@ -27,7 +27,10 @@ const App = () => {
 					<Route path="/login" component={Login} />
 					<Redirect path="/explore" to="/home" />
 					<Route path="/library" component={Library} />
-					<Route path="/upload" component={Upload} />
+					<Route
+						path="/upload"
+						render={(routerProps) => <Upload {...routerProps} />}
+					/>
 					<Route
 						path="/videos/:video_id"
 						render={(routerProps) => <VideoPage {...routerProps} />}

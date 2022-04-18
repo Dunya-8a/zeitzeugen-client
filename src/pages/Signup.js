@@ -83,20 +83,26 @@ export default function Signup() {
 								</InputGroup>
 							</FormControl>
 							<Stack spacing={10} pt={2}>
-								<Button
-									loadingText="Submitting"
-									size="lg"
-									bg={"blue.400"}
-									color={"white"}
-									_hover={{
-										bg: "blue.500",
-									}}>
-									Sign up
-								</Button>
+								<Link href={"/home"}>
+									<Button
+										w="100%"
+										loadingText="Submitting"
+										size="lg"
+										bg={"blue.400"}
+										color={"white"}
+										_hover={{
+											bg: "blue.500",
+										}}>
+										Sign up
+									</Button>
+								</Link>
 							</Stack>
 							<Stack pt={6}>
 								<Text align={"center"}>
-									Already a user? <Link color={"blue.400"} href={"/login"}>Login</Link>
+									Already a user?{" "}
+									<Link color={"blue.400"} href={"/login"}>
+										Login
+									</Link>
 								</Text>
 							</Stack>
 						</Stack>

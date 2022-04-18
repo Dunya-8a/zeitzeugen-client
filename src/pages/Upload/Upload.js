@@ -25,7 +25,7 @@ import {
 	Stack,
 } from "@chakra-ui/react";
 
-const Upload = () => {
+const Upload = (routerProps) => {
 	const [videoBuffer, setVideoBuffer] = useState([]);
 	const [birthDay, setBirthDay] = useState(null);
 	const [interviewDay, setInterviewDay] = useState(null);
@@ -51,6 +51,8 @@ const Upload = () => {
 
 		/* Alternatively, use this public API to retrieve the file
 		You still need to upload it using your local node in this configuration
+		Therefore, it might take longer for this to work,
+		as the file needs to be propagated throughout the network
 		
 		console.log(`https://ipfs.infura.io:5001/api/v0/${fileHash}`); 
 		return `https://ipfs.infura.io:5001/api/v0/${fileHash}`;*/
@@ -89,6 +91,7 @@ const Upload = () => {
 			.then((res) => {
 				console.log(res);
 			})
+			.then(() => setTimeout(routerProps.history.push("/home"), 1500))
 			.catch((err) => console.log(err));
 	};
 
